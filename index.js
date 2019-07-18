@@ -64,5 +64,6 @@ function placeOrder(cardNumber) {
   }else {
     sum_statement = `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`;
     cart = []
+    return sum_statement
   }
 }
