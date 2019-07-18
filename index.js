@@ -16,22 +16,50 @@ function addToCart(item) {
   return(`${item} has been added to your cart.`)
 }
 
-function viewCart(cart) {
+function viewCart() {
   if (cart.length === 0){
     return("Your shopping cart is empty.")
   }else {
-    return cart
+    var the_cart = "In your cart, you have "
+    for (let i = 0; i < cart.length; i++){
+      if (cart.length === 1) {
+        var next_item = `${cart[i].itemName} at $${cart[i].itemPrice}.`
+      }
+      else if (i === cart.length - 1) {
+        var next_item = `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
+      }else{
+        var next_item = `${cart[i].itemName} at $${cart[i].itemPrice}, `
+      }
+      the_cart = the_cart + next_item
+    }
+  return the_cart
   }
 }
 
 function total() {
-  // write your code here
+  var total = 0
+  for (let i = 0; i < cart.length; i++){
+    var price = cart[i].itemPrice
+    total = total + price
+  }
+  return total
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (var i = 0; i < cart.length; i++) {
+    if (item === cart[i].itemName) {
+      cart.splice(i, 1);
+    }else {
+      var returned = return("That item is not in your cart.")
+    }
+  }
+  return returned
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+//  if (cardNumber === 0) {
+//        return("Sorry, we don't have a credit card on file for you.")
+//  }else {
+
+//  }
 }
